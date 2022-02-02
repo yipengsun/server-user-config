@@ -9,7 +9,10 @@
   };
 
   outputs = { self, nixpkgs, home-manager, flake-utils }:
-    rec {
+    let
+      overlay = import ./overlay/default.nix;
+    in
+    {
       overlay = import ./overlay/default.nix;
       users = {
         physicist = home-manager.lib.homeManagerConfiguration {
@@ -47,8 +50,9 @@
               ./profiles/zsh
 
               # dev
-              ./profiles/neovim
-              ./profiles/bat
+              ./profiles/direnv
+              ./profiles/bat # cat with syntax highlighting
+              ./profiles/neovim # vi
 
               # config
               ./profiles/dircolors
@@ -60,12 +64,14 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
+          inherit system;
           config = { allowUnfree = true; };
-          overlays = [ self.overlay ];
+          overlays = [ overlay ];
         };
       in
       {
         devShell = pkgs.mkShell {
+          name = "server-user-config-devshell";
           buildInputs = with pkgs; [
             build-home
           ];
