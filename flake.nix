@@ -14,11 +14,24 @@
         stateVersion = "21.11"; # typically you don't change this
 
         # change these yourself
-        homeDirectory = "/home/user";
-        username = "user";
+        homeDirectory = "/home/physicist";
+        username = "physicist";
 
         configuration = { pkgs, lib, ... }: {
-          imports = [ ./home.nix ];
+          home.packages = with pkgs; [
+            # basic utilities
+            ripgrep
+            bat # cat with syntax highlighting
+            fd
+          ];
+
+          imports = [
+            # basic tools everyone should want
+            ./profiles/git
+            ./profiles/python
+            ./profiles/tmux
+            ./profiles/ranger # a nice CLI-based file manager
+          ];
         };
       };
     };
