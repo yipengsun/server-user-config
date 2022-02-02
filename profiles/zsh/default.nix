@@ -13,16 +13,6 @@
 
       dirHashes = {
         downloads = "$HOME/downloads";
-        dropbox = "$HOME/sync/dropbox";
-
-        # frequently used projects
-        talks = "$HOME/misc/documents/talks";
-        notes = "$HOME/misc/documents/personal/notes";
-
-        # research projects
-        lhcb = "$HOME/misc/researches/lhcb-data_analysis";
-        lhcb-hw = "$HOME/misc/researches/lhcb-hardware_related";
-        franco = "$HOME/misc/researches/umd-franco";
       };
 
       shellAliases = {

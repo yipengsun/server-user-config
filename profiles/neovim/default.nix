@@ -6,18 +6,6 @@ let
     name = "lastchange";
     src = ./lastchange;
   };
-
-  # newer vim-ledger has problems regarding auto completion
-  vim-ledger-stable = pkgs.vimUtils.buildVimPlugin rec {
-    pname = "vim-ledger-stable";
-    version = "1.2.0";
-    src = pkgs.fetchFromGitHub {
-      owner = "ledger";
-      repo = "vim-ledger";
-      rev = "v${version}";
-      sha256 = "aWt618LWLwnWAhKN9TTCTn2mJQR7Ntt8JV3L/VDiS84=";
-    };
-  };
 in
 {
   home.sessionVariables = {
@@ -97,23 +85,10 @@ in
       delimitMate
       { plugin = vim-pandoc; config = "let g:pandoc#syntax#conceal#use=0"; }
       lastchange
-      fcitx-vim
 
       # syntax
       vim-nix
-      vim-ledger-stable
       vim-pandoc-syntax
-
-      # file manager
-      telescope-nvim
-      {
-        plugin = telescope-file-browser-nvim;
-        config = ''
-          lua << EOF
-            require("telescope").load_extension "file_browser"
-          EOF
-        '';
-      }
 
       # ide
       { plugin = coc-nvim; config = builtins.readFile ./coc-nvim.vim; }
@@ -154,24 +129,6 @@ in
               execute fl . ','. ll .'call nerdcommenter#Comment("n", "Toggle")'
           endfunc
           nnoremap ,h :call AutoHead()<CR>
-        '';
-      }
-      {
-        plugin = vimwiki;
-        config = ''
-          let g:vimwiki_global_ext=0
-          let g:vimwiki_hl_headers=1
-          let g:vimwiki_camel_case=0
-          let g:vimwiki_hl_cb_checked=1
-          let g:vimwiki_CJK_length=1
-
-          if isdirectory($HOME.'/data')
-              let g:vimwiki_list=[{
-                          \ 'path': '~/data/wiki',
-                          \ 'path_html': '~/data/wiki/html',
-                          \ }]
-          endif
-          nnoremap \ty :VimwikiToggleListItem<CR>
         '';
       }
       { plugin = vim-clang-format; config = "let g:clang_format#detect_style_file=1"; }
@@ -262,7 +219,6 @@ in
           rootPatterns = [ ".ccls" "compile_commands.json" ];
           initializationOptions = {
             cache = { directory = "/tmp/ccls"; };
-            highlight = { lsRanges = true; };
           };
         };
         nix = {
