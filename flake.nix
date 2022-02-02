@@ -28,6 +28,7 @@
 
             home.packages = with pkgs; [
               # basic utilities
+              bottom # bottom is top
               ripgrep
               fd
               git-annex
