@@ -20,8 +20,8 @@
           stateVersion = "21.11"; # typically you don't change this
 
           # change these yourself
-          homeDirectory = "/root";
-          username = "root";
+          homeDirectory = "/home/physicist";
+          username = "physicist";
 
           configuration = { pkgs, lib, ... }: {
             nixpkgs.overlays = [ overlay ];
