@@ -1,5 +1,5 @@
 {
-  description = "A Home Manager flake for user";
+  description = "Sample nix-based user config for our server";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -30,6 +30,7 @@
               # basic utilities
               ripgrep
               fd
+              git-annex
 
               # HEP
               root
