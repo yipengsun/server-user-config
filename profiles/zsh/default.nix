@@ -9,7 +9,6 @@
     {
       enable = true;
       enableSyntaxHighlighting = true;
-      enableCompletion = true;
 
       dirHashes = {
         downloads = "$HOME/downloads";
