@@ -160,11 +160,6 @@
         autoload -Uz promptinit
         promptinit
         prompt ${preztoTheme}
-
-        # Auto start awesome when login at TTY1
-        if [ $(id -u) -ne 0 ] && [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-            exec startx
-        fi
       '';
 
       envExtra = ''
