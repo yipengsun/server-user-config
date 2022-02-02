@@ -28,6 +28,10 @@ in
   home.packages = with pkgs; [
     xclip # copy-on-select for neovim
     nodejs # required by coc-nvim
+
+    # language servers
+    ccls
+    rnix-lsp
   ];
 
   home.file.".editorconfig".text = ''
