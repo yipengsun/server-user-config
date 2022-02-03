@@ -31,6 +31,7 @@
               bottom # bottom is top
               ripgrep
               fd
+              tree
               git-annex
 
               # HEP
