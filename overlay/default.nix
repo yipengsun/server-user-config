@@ -1,7 +1,10 @@
 final: prev:
 {
   # put new packages/package overrides here
-  build-home = prev.writeScriptBin "build-home" ''
-    nix build ".#users.physicist.activationPackage" && ./result/activate
+  home-build = prev.writeScriptBin "home-build" ''
+    nix build ".#users.physicist.activationPackage"
+  '';
+  home-switch = prev.writeScriptBin "home-switch" ''
+    ${final.home-build}/bin/home-build && ./result/activate
   '';
 }

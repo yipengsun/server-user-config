@@ -76,7 +76,8 @@
         devShell = pkgs.mkShell {
           name = "server-user-config-devshell";
           buildInputs = with pkgs; [
-            build-home
+            home-build
+            home-switch
           ];
         };
       });
