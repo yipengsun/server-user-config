@@ -36,6 +36,9 @@
               tree
               git-annex
 
+              # terminal debugging
+              colortest
+
               # HEP
               root
 
