@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   # tig config to resolve contrast issues w/ dracula
   xdg.configFile."tig/config".text = ''
@@ -17,6 +18,8 @@
     # View-specific color
     color tree.date         black   cyan    bold
   '';
+
+  home.packages = [ pkgs.tig ];
 
   programs.git = {
     enable = true;

@@ -27,6 +27,8 @@
             nixpkgs.overlays = [ overlay ];
 
             home.packages = with pkgs; [
+              pkgs.home-manager
+
               # basic utilities
               bottom # bottom is top
               ripgrep
