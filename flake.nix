@@ -36,8 +36,12 @@
               tree
               git-annex
 
+              # terminal debugging
+              colortest
+
               # HEP
               root
+              sxiv # image viewer
 
               # define additional packages here
               # you can search the package names on https://search.nixos.org/packages
