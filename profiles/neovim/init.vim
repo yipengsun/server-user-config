@@ -172,7 +172,7 @@ vnoremap <F1> <NOP>
 inoremap <silent><F3> <C-R>=strftime("%F")<BAR><CR>
 
 " Auto copy text under mouse-selection
-vnoremap <LeftRelease> "*ygv
+"vnoremap <LeftRelease> "*ygv
 
 " Toggle linenumber mode (relative, absolute)
 func! s:ToggleNuMode()
