@@ -41,5 +41,5 @@ Sample nix-based user config for our server.
     ```
 
 7. `nix develop -c home-switch`
-8. `chsh $(which zsh)`
+8. `chsh -s $(which zsh)`
 9. Logout and re-login. Enjoy!
