@@ -174,18 +174,21 @@ inoremap <silent><F3> <C-R>=strftime("%F")<BAR><CR>
 " Auto copy text under mouse-selection
 vnoremap <LeftRelease> "*ygv
 
+" Insert a hard tab
+inoremap <F5> <C-V><Tab>
+
 " Toggle linenumber mode (relative, absolute)
-func! s:ToggleNuMode()
+func! ToggleNuMode()
     if(&rnu == 1)
         set nornu
     else
         set rnu
     endif
 endfunc
-nnoremap <C-l> :call s:ToggleNuMode()<CR>
+nnoremap <C-l> :call ToggleNuMode()<CR>
 
 " Toggle spell check
-func! s:ToggleSpellCheck()
+func! ToggleSpellCheck()
     set spelllang=en_us
     let spl_status=&spell
     if &spell
@@ -197,7 +200,7 @@ func! s:ToggleSpellCheck()
     endif
     exe "setlocal " . spl_status
 endfunc
-nnoremap <silent><F4> :call s:ToggleSpellCheck()<CR>
+nnoremap <silent><F4> :call ToggleSpellCheck()<CR>
 
 
 """""""""""""
@@ -218,3 +221,5 @@ func! SetTW80Options()
     set formatoptions-=t
 endfunc
 au Filetype tex,python,cpp,c call SetTW80Options()
+
+au FileType yaml set noautoindent
