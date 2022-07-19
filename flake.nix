@@ -43,6 +43,9 @@
               root
               sxiv # image viewer
 
+              # dev
+              nixpkgs-review
+
               # define additional packages here
               # you can search the package names on https://search.nixos.org/packages
             ];
