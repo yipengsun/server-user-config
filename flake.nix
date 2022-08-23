@@ -42,6 +42,7 @@
               # HEP
               root
               sxiv # image viewer
+              zathura # pdf viewer
 
               # dev
               nixpkgs-review
