@@ -46,6 +46,7 @@
 
               # dev
               nixpkgs-review
+              black
 
               # define additional packages here
               # you can search the package names on https://search.nixos.org/packages
