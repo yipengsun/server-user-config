@@ -80,5 +80,14 @@
           }
         ];
       };
-    };
+    } //
+    flake-utils.lib.eachSystem [ system ] (system: {
+      devShell = pkgs.mkShell {
+        name = "server-user-config-devshell";
+        buildInputs = with pkgs; [
+          home-build
+          home-switch
+        ];
+      };
+    });
 }
